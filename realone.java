@@ -53,8 +53,16 @@ public class realone {
 
     // Modify text (uppercase transformation)
     private static String modifyText(String input) {
-        return input.toUpperCase();
-    }
+	    char[] chars = input.toCharArray();
+	    long sum = 0;
+	    for (char c : chars) {
+	        for (int i = 0; i < 1000; i++) {   // simulate heavy CPU work
+	            sum += Math.pow(c, 2) % 123;
+	        }
+	    }
+	    return "Sum: " + sum;
+	}
+
 
     // Write string using ISO-8859-1 encoding
     private static void safeWrite(String filename, String content) throws IOException {
